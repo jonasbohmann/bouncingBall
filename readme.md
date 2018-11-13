@@ -1,5 +1,5 @@
-EMI Praxisaufgabe 2
+**TU Dresden: Einführung in die Medieninformatik - WiSe18/19**
 
-Hallo Leute, das ist unsere Lösung
+Praxisaufgabe 2: Java & Processing
 
 
