@@ -6,13 +6,13 @@ class Ball {
   int diameter;
 
   
-  //TODO: Konstruktor erstellen
+  // TODO: Konstruktor erstellen
   
   void bounce() { 
     
     if (y>=360-(diameter/2)){
      
-      speed=speed*(-1*wirkungsgrad); // Qenn der Ball am Boden ist, wird die Geschwindigkeit umgekehrt, reduziert durch den Wirkungsgrad<1
+      speed=speed*(-1*wirkungsgrad); // Wenn der Ball am Boden ist, wird die Geschwindigkeit umgekehrt, reduziert durch den Wirkungsgrad<1
       speed=speed+gravitation;
       y=y+speed;
 
