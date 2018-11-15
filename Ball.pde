@@ -3,10 +3,10 @@ class Ball {
   float gravitation=1.2; // Anziehungskraft (für Beschleunigung) in pixeln pro quadratframe                                              
   float wirkungsgrad=0.9; // Damit die Kugel mit der Zeit weniger hoch hüpft
   float speed=0; // Geschwindigkeit der Kugel
-  int diameter;
+  float diameter;
   
  
-  Ball(float x, float y,  int dia){
+  Ball(float x, float y,  float dia){
     this.x=x;
     this.y=y;
     this.diameter=dia;
