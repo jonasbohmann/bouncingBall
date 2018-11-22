@@ -1,31 +1,23 @@
 Ball[] b = new Ball[10]; //Ein Array aus Elementen der Klasse Ball
 int countBalls=0; //Zählt die Anzahl der Bälle
 
+int screenX=1000;
+int screenY=600;
+
+
+// Nötig, um size() mit Variablen nutzen zu können
+void settings(){
+  size(screenX, screenY);
+}
+
 void setup() {
   frameRate(60); //Erhöht die framerate -> flüssiger
-  size(640, 360);
-  
-  /* Test-Code
-   * erstellt drei neue Bälle an unterschiedlichen Positionen */
-  
-  /*  b[0]=new Ball(600,300,20);
-    b[1]=new Ball(400,300,20);
-    b[2]=new Ball(200,300,20);
-    countBalls=3;
-    */
-    
-  /* Selbst diese "manuell" angelegten Bälle spawnen scheinbar
-   * an genau derselben Stelle
-   * scheinbar beeinflussen sie gegenseitig ihre Position und Geschwindigkeit
-   * Auch beu durch Mausklicks erzeugten Bällen werden alle auf die neue
-   * Position gesetzt. Zusätzlich werden sie mit jedem neuen Ball schneller.
-   */
 }  
 
 
 
 void draw() {
-  background(255);
+  background(255); // Weißer Hintergrund
   
   /* Die if-Bedingung verhindert, dass die Methoden von Ball ausgeführt werden,
    * wenn keine Bälle existieren.

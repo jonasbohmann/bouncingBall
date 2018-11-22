@@ -21,7 +21,7 @@ class Ball {
   
   //Sorgt für die Bewegung des Balls
   void bounce() {     
-    if (y>=360-(diameter/2)-1){
+    if (y>=screenY-(diameter/2)-1){
       speed=speed*(-1*wirkungsgrad); // Wenn der Ball am Boden ist, wird die Geschwindigkeit umgekehrt, reduziert durch den Wirkungsgrad<1
     }
     
@@ -33,8 +33,8 @@ class Ball {
     
     /* Wenn der Ball teilweise im "Boden" steckt, wird er auf den Boden gesetzt
      * Ohne diese Funktion würde er im Boden versinken */
-    if (y>=360-(diameter/2)-1){
-      y=360-(diameter/2)-1;
+    if (y>=screenY-(diameter/2)-1){
+      y=screenY-(diameter/2)-1;
     }
     
   }
