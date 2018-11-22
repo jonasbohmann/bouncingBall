@@ -1,6 +1,6 @@
 class Ball {
   float x,y; // Position im Raum
-  float gravitation=1.2; // Anziehungskraft (für Beschleunigung) in pixeln pro quadratframe                                              
+  float gravitation=1.3; // Anziehungskraft (für Beschleunigung) in pixeln pro quadratframe                                              
   float wirkungsgrad=0.9; // Damit die Kugel mit der Zeit weniger hoch hüpft
   float speed=0; // Geschwindigkeit der Kugel
   float diameter;
@@ -15,7 +15,7 @@ class Ball {
   //Sorgt dafüt, dass Ball angezeigt wird
   void display() {
     stroke(0);
-    fill(127,100);
+    fill(255,100,100);
     ellipse(x,y,diameter,diameter);
   }  
   

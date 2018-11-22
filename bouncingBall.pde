@@ -2,6 +2,7 @@ Ball[] b = new Ball[10]; //Ein Array aus Elementen der Klasse Ball
 int countBalls=0; //Zählt die Anzahl der Bälle
 
 void setup() {
+  frameRate(60); //Erhöht die framerate -> flüssiger
   size(640, 360);
   
   /* Test-Code
@@ -41,8 +42,8 @@ void draw() {
        * b[0] und b[1]
        * Deshalb "countBalls-1"
        */
-      b[countBalls-1].display();
-      b[countBalls-1].bounce();
+      b[n].bounce();
+      b[n].display();
     }
   }
 }
@@ -57,7 +58,7 @@ void mousePressed(){
      * und dann um 1 inkrementiert. Somit beträgt countBalls bei genau einem 
      * Ballobjekt 1 und auch später immer genau die Anzahl der Bälle
      */
-    b[countBalls]=new Ball(float(mouseX),float(mouseY),20);
+    b[countBalls]=new Ball(mouseX,mouseY,random(15,30));
     countBalls++;
   }
 }

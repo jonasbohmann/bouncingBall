@@ -1,0 +1,35 @@
+Ball[] b = new Ball[9]; //Ein Array aus Elementen der Klasse Ball
+int i = -1; //Zähler 
+boolean ballCreated=false;
+
+void setup() {
+  size(640, 360);
+  //for (int i=0; i < b.length; i++){
+  //  b[i] = new Ball(0,0,random(0,0));
+  //}
+}  
+
+
+
+void draw() {
+  background(255);
+  if (ballCreated) //verhindert NullPointerException
+    for (int n=i; n<=i; n--){
+      System.out.println("Versuche, b["+ i + "] anzuzeigen");
+      b[n].display();
+      System.out.println("b[n] angezeigt");
+      b[n].bounce();
+      System.out.println(n + " " + i);
+    }
+}
+
+void mouseClicked(){
+  if (i<=b.length-1){
+    
+    b[0] = new Ball(float(mouseX),float(mouseY),random(5,30));
+    i++;
+        ballCreated=true;
+
+    System.out.println("i erhöht. i = " + i);
+  }
+}
