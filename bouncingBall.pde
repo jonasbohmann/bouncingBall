@@ -59,6 +59,16 @@ void mousePressed(){
      * Ballobjekt 1 und auch später immer genau die Anzahl der Bälle
      */
     b[countBalls]=new Ball(mouseX,mouseY,random(15,30));
-    countBalls++;
+  }
+  countBalls++;
+  
+  //Wenn das Array voll ist
+  if (countBalls>b.length){
+    
+    // Setzte b[] und countBalls komplett zurück, dann gehts beim nächsten Klick wieder von vorne los
+    for (int i=0; i<b.length;i++){
+      b[i]=null;
+    }
+    countBalls=0;
   }
 }
