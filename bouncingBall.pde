@@ -1,64 +1,66 @@
 Ball[] b = new Ball[10]; //Ein Array aus Elementen der Klasse Ball
 int countBalls=0; //Zählt die Anzahl der Bälle
 
+float mouseX1,mouseX2;
+float mouseY1,mouseY2;
+
+float speedX, speedY;
+
+int screenX=1000;
+int screenY=600;
+
+
+// Nötig, um size() mit Variablen nutzen zu können
+void settings(){
+  size(screenX, screenY);
+}
+
 void setup() {
   frameRate(60); //Erhöht die framerate -> flüssiger
-  size(640, 360);
-  
-  /* Test-Code
-   * erstellt drei neue Bälle an unterschiedlichen Positionen */
-  
-  /*  b[0]=new Ball(600,300,20);
-    b[1]=new Ball(400,300,20);
-    b[2]=new Ball(200,300,20);
-    countBalls=3;
-    */
-    
-  /* Selbst diese "manuell" angelegten Bälle spawnen scheinbar
-   * an genau derselben Stelle
-   * scheinbar beeinflussen sie gegenseitig ihre Position und Geschwindigkeit
-   * Auch beu durch Mausklicks erzeugten Bällen werden alle auf die neue
-   * Position gesetzt. Zusätzlich werden sie mit jedem neuen Ball schneller.
-   */
 }  
 
 
 
 void draw() {
-  background(255);
+  background(255); // Weißer Hintergrund
   
-  /* Die if-Bedingung verhindert, dass die Methoden von Ball ausgeführt werden,
-   * wenn keine Bälle existieren.
-   * Somit verhindert sie einen NullPointerException-Error
-   */
    if (countBalls>0){
-     
-    /* Die For-Schleife zählt von null aufwärts, damit für
-     * jeden Ball die danach folgenden Funktionen ausgeführt werden
-     */
     for (int n=0; n<countBalls;n++){
-      /* countBalls ist immer eine Stelle höher als der zugehörige Index des Arrays
-       * Bei b[1] existieren bereits zwei Bälle, nämlich
-       * b[0] und b[1]
-       * Deshalb "countBalls-1"
-       */
       b[n].bounce();
       b[n].display();
     }
   }
+  
+  if (mousePressed){
+    float strokeColourX,strokeColourY;
+    
+    if (mouseX1-mouseX>0)
+      strokeColourX=mouseX1-mouseX;
+      else strokeColourX=(mouseX1-mouseX)*-1;
+      
+    if (mouseY1-mouseY>0)
+      strokeColourY=mouseY1-mouseY;
+      else strokeColourY=(mouseY1-mouseY)*-1;
+
+    
+    strokeWeight(3);
+    stroke((strokeColourX+strokeColourY),0,0);
+    line(mouseX1,mouseY1,mouseX,mouseY);
+  }
 }
 
 void mousePressed(){
-  /* Die if-Schleife führt den nachfolgenden Code nur aus,
-   * wenn das Array nicht voll ist, verhindert so ein zu vollen Array */
+  mouseX1=mouseX;
+  mouseY1=mouseY;
+}
+
+void mouseReleased(){
+  mouseX2=mouseX;
+  mouseY2=mouseY;
+  
   if (countBalls<=b.length-1){
-    
-    /* Erstellt die Objekte vom Typ Ball an der Mausposition mit Durchmesser 20
-     * Da countBalls von 0 startet, wird der erste Ball bei b[0] erstellt
-     * und dann um 1 inkrementiert. Somit beträgt countBalls bei genau einem 
-     * Ballobjekt 1 und auch später immer genau die Anzahl der Bälle
-     */
-    b[countBalls]=new Ball(mouseX,mouseY,random(15,30));
+
+    b[countBalls]=new Ball(mouseX,mouseY,random(15,30),(mouseX1-mouseX2)/3,(mouseY1-mouseY2)/3);
   }
   countBalls++;
   
@@ -71,4 +73,5 @@ void mousePressed(){
     }
     countBalls=0;
   }
+
 }
